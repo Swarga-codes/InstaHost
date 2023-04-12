@@ -68,10 +68,8 @@
     .createPostsHeader h1{
         font-size: 16px;
     }
-    .create{
-        /* text-align: initial; */
-    }
+
     .create img{
-        width: initial;
+        width: 100%;
     }
 }
