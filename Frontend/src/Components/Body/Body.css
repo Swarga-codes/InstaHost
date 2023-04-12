@@ -130,4 +130,7 @@ border-bottom: 1px solid gray;
         background: #201b1b;
 
     }
+    .comment_container{
+        height: auto;
+    }
 }
