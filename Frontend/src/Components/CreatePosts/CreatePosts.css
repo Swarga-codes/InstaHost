@@ -1,0 +1,77 @@
+.createPostsCard{
+    padding: 4rem;
+    margin-left: 24rem;
+    /* display: flex; */
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    /* border-bottom: 2px solid gray; */
+    margin-right: 10rem;
+    color: #fff;
+    
+}
+.createPostsHeader{
+    display: flex;
+    border-bottom: 2px solid gray;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid gray;
+}
+.createPostsHeader h1{
+    margin-left: auto;
+    font-size: 24px;
+}
+.createPostsHeader button{
+    margin-left: auto;
+    cursor: pointer;
+    background-color: transparent;
+    color: rgb(0, 149, 246);
+    font-weight: 600;
+    outline: none;
+    border: none;
+}
+.create,.add_captions{
+    border: 2px solid gray;
+}
+.create{
+    text-align: center;
+    padding: 2rem 2rem;
+}
+.create img{
+   width: 300px;
+   background-color: white;
+}
+.add_captions textarea{
+    padding: 0.5rem 1rem;
+    outline: none;
+    color: #fff;
+    border: none;
+}
+.create input{
+    display: none;
+}
+@media (max-width:991px){
+    .createPostsCard{
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        width: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .add_captions{
+        border: none;
+    }
+    .add_captions textarea{
+        border: 2px solid gray;
+        width: 90%;
+    }
+    .createPostsHeader h1{
+        font-size: 16px;
+    }
+    .create{
+        /* text-align: initial; */
+    }
+    .create img{
+        width: initial;
+    }
+}

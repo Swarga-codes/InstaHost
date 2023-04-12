@@ -1,0 +1,112 @@
+.profile_header{
+    padding: 4rem;
+    margin-left: 24rem;
+    display: flex;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;   
+    border-bottom: 2px solid gray;
+    margin-right: 10rem; 
+}
+.profile_image img{
+    border-radius: 30rem;
+    width: 11rem;
+    height: 11rem;
+}
+
+.profile_details{
+    margin-left: 3rem;
+}
+.profile_name h1{
+    color: #fff;
+    font-weight: 400;
+    margin-top: 1rem;
+   
+    
+}
+.profile_reach{
+    display: flex;
+    margin-top: 3rem;
+}
+.profile_reach p{
+    color: #fff;
+   padding-right: 1rem;
+   font-size: 18px;
+
+}
+.users_posts{
+    padding: 2rem 2rem;
+    margin-left: 22rem;
+    display: flex;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;   
+    margin-right: 3rem; 
+    flex-wrap: wrap;
+}
+.users_posts img{
+    width: 20rem;
+    padding-right: 0.4rem;
+    padding-bottom: 0.4rem;
+    height: 15rem;
+}
+.follow_user{
+    color: #fff;
+    background: rgb(0, 149, 246);
+    border: none;
+    outline: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+.unfollow_user{
+    color: #fff;
+    background:black;
+    border: 2px solid #fff;
+    outline: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+@media(max-width:991px){
+.profile_header,.users_posts{
+    margin: 1rem 1rem;
+    padding: 4rem 0.2rem;
+    overflow-x: hidden;
+}
+.profile_image img{
+    width: 7rem;
+    height: 7rem;
+}
+.profile_name h1{
+    font-size: 20px;
+}
+.profile_header{
+    margin: 0rem 0.5rem;
+    padding-top: 5rem;
+}
+.profile_reach{
+    /* width: max-content; */
+    margin-top: 2rem;
+    text-align: center;
+}
+.profile_reach p{
+    font-size: 13px;
+    padding-right: 0;
+    margin-left: -1rem;
+    margin-right: 1.5rem;
+    font-weight: 600;
+}
+.users_posts{
+    padding: 1rem 0rem;
+    margin: 0;
+}
+.users_posts img{
+    width: 7.2rem;
+    padding-right: 0.2rem;
+    padding-bottom: 0.4rem;
+    height: 7.2rem;
+}
+.unfollow_user,.follow_user{
+    margin-left: 0;
+    margin-top: 0.8rem;
+}
+}

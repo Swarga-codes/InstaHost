@@ -1,0 +1,26 @@
+.search_coming_soon{
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;   
+}
+.search_coming_soon svg{
+    width: 5rem;
+    height: 5rem;
+}
+.search_coming_soon a{
+    text-decoration: none;
+}
+.explore_home_page{
+    cursor: pointer;
+   color: rgb(0, 149, 246);
+   font-weight: 600;
+}
+@media(max-width:991px){
+    .search_coming_soon{
+        width: 98%;
+    }
+}

@@ -1,0 +1,106 @@
+.Post{
+    border: 2px solid #000;
+    flex: 0.8;
+    color: white;
+    margin: 1rem 24rem;
+    /* border: 2px solid gray; */
+    /* border-radius: 30px; */
+    max-width: 500px;
+    height: max-content;
+    border-bottom: 1px solid gray;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;    
+
+}
+.post_header{
+    display: flex;
+    padding: 1rem 1rem;
+    border-radius: 30px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    /* border-bottom: 2px solid gray; */
+    padding-left: 0;
+}
+.post_header p{
+    display: flex;
+    margin-left: 1rem;
+    align-items: center;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;    
+}
+.post_header img{
+    border-radius: 60px;
+    width: 2.3rem;
+    height: 2.3rem;
+}
+.post_content{
+    text-align: center;
+}
+.post_content img{
+  width: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+.post_like{
+    cursor: pointer;
+}
+.post_like svg{
+    padding-right: 0.5rem;
+}
+.post_like p{
+    margin-top: 0.3rem;
+}
+.post_footer{
+    padding: 0.6rem 0.5rem;
+   /* border-radius: 30px; */
+}
+.post_actions{
+    display: flex;
+}
+.post_actions div{
+    padding: 0.6rem 0.5rem;
+}
+.post_caption{
+    padding: 0.4rem 0.6rem;
+    margin-bottom: 0.5rem;
+}
+.comment_box {
+    margin-top: 1rem;
+    /* margin-bottom: 2rem; */
+    /* border: 2px solid gray; */
+    /* border-radius: 30px; */
+    /* padding: 0.5rem 0.5rem; */
+    /* background: #201b1b; */
+    display: flex;
+}
+.comment_box input {
+    outline: none;
+    color: #fff;
+    padding: 0.7rem 0.5rem;
+    width: 100%;
+    background: black;
+    border: none;
+    font-size: 14px;
+}
+.comment_box button {
+    background: black;
+    color: #fff;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+.view_comments{
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+.post_header p a{
+    text-decoration: none;
+    color: #fff;
+}
+.post_caption p span{
+    font-weight: 600;
+}
+/*Responsive*/
+@media (max-width:991px){
+    .Post{
+        margin: 2rem 1rem;
+    }
+}

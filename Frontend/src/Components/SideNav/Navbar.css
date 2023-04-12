@@ -1,0 +1,50 @@
+.SideNav{
+    border-right: 2px solid gray;
+    border-right-width: 1px;
+    flex: 0.2;
+    color: #fff;
+    padding: 2.5rem 0.5rem;
+    position: fixed;
+    height: 100%;
+    
+}
+.app_logo img{
+    margin-left: 2rem;
+}
+.nav_routes{
+    margin-top: 2rem;
+}
+.nav_routes a{
+    color: gray;
+    text-decoration: none;
+}
+.route_name{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 1.2rem 2.5rem;
+    cursor: pointer; 
+}
+
+.route_name p{
+    margin-left: 1rem;
+    font-size: 18px;
+    color: gray;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;    
+text-decoration: none;
+}
+.route_name p:hover{
+    color: #fff;
+    transition: .3s;
+}
+.route_icon{
+   height: 1.8rem !important;
+   width: 2rem !important;
+}
+
+/*Responsive*/
+@media (max-width:991px) {
+    .SideNav{
+        display: none;
+    }
+}

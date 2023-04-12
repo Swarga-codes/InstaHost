@@ -1,0 +1,44 @@
+.profilepic_container{
+margin-left: 4rem;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+color: white;
+padding: 1rem 0rem;
+background-color: #242526;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+width: 20%;
+
+}
+.profilepic_container button{
+    font-size: 20px;
+    text-align: center;
+    padding: 1rem 0;
+    cursor: pointer;
+    outline: none; 
+     border: none;
+    background-color: #242526;
+    color: white;
+}
+.profilepic_container hr{
+    height: 0.01px;
+}
+.updateBtn{
+    color: rgb(0, 149, 246) !important;
+    font-weight: 600;
+}
+.removeBtn{
+    color: rgb(237, 73, 86) !important;
+}
+.upload_profilepic{
+    display: none;
+}
+@media(max-width:991px){
+    .profilepic_container{
+        left: 33%;
+        width: 70%;
+    }
+}

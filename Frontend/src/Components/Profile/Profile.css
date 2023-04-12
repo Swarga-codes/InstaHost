@@ -1,0 +1,47 @@
+.profile_header{
+    padding: 4rem;
+    margin-left: 24rem;
+    display: flex;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;   
+    border-bottom: 2px solid gray;
+    margin-right: 10rem; 
+}
+.profile_image img{
+    border-radius: 30rem;
+    width: 11rem;
+    height: 11rem;
+}
+
+.profile_details{
+    margin-left: 3rem;
+}
+.profile_name h1{
+    color: #fff;
+    font-weight: 400;
+    margin-top: 1rem;
+   
+    
+}
+.profile_reach{
+    display: flex;
+    margin-top: 3rem;
+}
+.profile_reach p{
+    color: #fff;
+   padding-right: 1rem;
+   font-size: 18px;
+
+}
+.users_posts{
+    padding: 2rem 2rem;
+    margin-left: 22rem;
+    display: flex;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;   
+    margin-right: 3rem; 
+    flex-wrap: wrap;
+}
+.users_posts img{
+    width: 10rem;
+    padding-right: 2.8rem;
+    padding-bottom: 3rem;
+}

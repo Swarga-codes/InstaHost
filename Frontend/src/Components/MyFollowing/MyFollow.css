@@ -1,0 +1,151 @@
+.Body{
+    display: flex;
+    height: 100vh;
+}
+.comment_details{
+    margin-left: 4rem;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    color: white;
+    background-color: rgba(16, 13,13,0.4);
+}
+.comment_pic img{
+    width: 40rem;
+    margin-top: 0rem;
+    height: 37rem;
+}
+.comment_container{
+    display: flex;
+}
+.comment_display{
+    width: 35rem;
+}
+.user_header{
+    display: flex;
+    padding: 0.6rem 0.8rem;
+    /* border: 2px solid gray; */
+    border-bottom: 1px solid gray;
+}
+.user_header img{
+    width: 3rem;
+    height: 3rem;
+border-radius: 5rem;
+}
+.user_header p{
+    display: flex;
+    margin-left: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.comment_section{
+    /* border:2px solid gray; */
+overflow-y: auto;
+height: 50vh;
+}
+.comment_section p{
+    padding: 1rem 1rem;
+}
+.add_comment {
+    margin: 0.5em 1rem;
+    /* border: 2px solid gray; */
+    border-radius: 30px;
+    padding: 0.5rem 0.5rem;
+    /* background: #201b1b; */
+    display: flex;
+}
+.add_comment input {
+    outline: none;
+    color: #fff;
+    padding: 0.7rem 0.5rem;
+    width: 100%;
+    /* background: #201b1b; */
+    border: none;
+}
+.add_comment button {
+    background: #201b1b;
+    color: #fff;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+.likes_caption{
+    padding: 1rem 1rem;
+    border-bottom: 1px solid gray;
+}
+.close_comment{
+    position: fixed;
+    top: 3%;
+    right: 3%;
+    cursor: pointer;
+}
+.comment_details_hidden{
+    display: none;
+}
+.no_follows{
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.no_follows svg{
+    width: 5rem;
+    height: 5rem;
+}
+.no_follows a{
+    text-decoration: none;
+}
+.explore_home_page{
+    cursor: pointer;
+   color: rgb(0, 149, 246);
+   font-weight: 600;
+}
+@media(max-width:991px){
+    .comment_details{
+        margin-left: 0;
+        top: 12%;
+        left: 0%;
+        padding: 0.5rem 0.5rem;
+        
+      
+    }
+    .comment_display{
+        display: flex;
+        flex-direction: column-reverse;
+        border: 1px solid gray;
+        width: 100%;
+        border-radius: 20px;
+    }
+    .likes_caption p:nth-child(1),.likes_caption br{
+        display: none;
+    }
+    .add_comment{
+        width: fit-content;
+        border: none;
+        margin-top: 1.5rem;
+    }
+    .add_comment input{
+        width: 16rem;
+    }
+    .user_header{
+        display: none;
+    }
+    .comment_pic{
+        display: none;
+    }
+    .comment_section{
+        width: 21.5rem;
+        border: none;
+        margin: 1rem 1rem;
+        /* border-top: 1px solid gray; */
+    }
+    .close_comment{
+        right: 2%;
+        top:2%;
+    }
+    .no_follows{
+        width: 100%;
+    }
+}

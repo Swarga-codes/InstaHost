@@ -1,0 +1,133 @@
+.Body{
+    display: flex;
+    height: 100vh;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;    
+}
+.comment_details{
+    margin-left: 4rem;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    color: white;
+    background-color: rgba(16, 13,13,0.4);
+}
+.comment_pic img{
+width: 30rem;
+margin-top: 2.5rem;
+}
+.comment_container{
+    display: flex;
+    height: 37rem;
+}
+.comment_display{
+    width: 35rem;
+}
+.user_header{
+    display: flex;
+    padding: 0.6rem 0.8rem;
+    /* border: 2px solid gray; */
+}
+.user_header img{
+    width: 3rem;
+border-radius: 5rem;
+}
+.user_header p{
+    display: flex;
+    margin-left: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.comment_section{
+    /* border:2px solid gray; */
+overflow-y: auto;
+height: 50vh;
+border-bottom: 1px solid gray;
+}
+.comment_section p{
+    padding: 1rem 1rem;
+}
+.add_comment {
+    margin: 0.5em 1rem;
+    /* border: 2px solid gray; */
+    border-radius: 30px;
+    padding: 0.5rem 0.5rem;
+    /* background: #201b1b; */
+    display: flex;
+}
+.add_comment input {
+    outline: none;
+    color: #fff;
+    padding: 0.7rem 0.5rem;
+    width: 100%;
+    /* background: #201b1b; */
+    border: none;
+}
+.add_comment button {
+    background: #201b1b;
+    color: #fff;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+.likes_caption{
+    padding: 1rem 1rem;
+}
+.close_comment{
+    position: fixed;
+    top: 3%;
+    right: 15%;
+    cursor: pointer;
+}
+.comment_details_hidden{
+    display: none;
+}
+.responsive_navheader,.responsive_navfooter{
+    display: none;
+}
+@media (max-width:991px) {
+    .responsive_navheader{
+        display: initial;
+        width: 100%;
+        display: flex;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid gray;
+        position: fixed;
+        padding-top: 0.5rem;
+    }
+    .responsive_navfooter{
+        display: initial;
+        width: 100%;
+        display: flex;
+        padding: 0.5rem 0;
+        border-top: 1px solid gray;
+       color: white;
+       position: fixed;
+       width: 100%;
+       left: 0;
+       bottom: 0;
+       justify-content: center;
+    }
+    .responsive_navfooter a{
+        text-decoration: none;
+        color: white;
+    }
+    .responsive_navfooter svg{
+        padding: 1rem 1.5rem;
+    }
+    .res_logout{
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-right: 0.5rem;
+    }
+    .posts_display{
+        margin-top: 4.5rem;
+    }
+    .add_comment{
+        background-color: #201b1b;
+    }
+    .add_comment input{
+        background: #201b1b;
+
+    }
+}
