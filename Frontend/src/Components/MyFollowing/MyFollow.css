@@ -105,10 +105,12 @@ height: 50vh;
 @media(max-width:991px){
     .comment_details{
         margin-left: 0;
-        top: 12%;
-        left: 0%;
         padding: 0.5rem 0.5rem;
-        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: none;
       
     }
     .comment_display{
@@ -142,6 +144,10 @@ height: 50vh;
         margin: 1rem 1rem;
         /* border-top: 1px solid gray; */
     }
+    .comment_container{
+        background: none;
+    }
+   
     .close_comment{
         right: 3%;
         top:3%;
