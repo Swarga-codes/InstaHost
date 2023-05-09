@@ -14,7 +14,7 @@ function PostDetails({ items, detailDisp }) {
 const{comment,setComment}=useContext(commentContext);
   const DeletePost=(posts)=>{
     if(window.confirm('Do you really want to delete this post?')){
-    fetch(`http://localhost:5000/delposts/${posts}`,{
+    fetch(`/delposts/${posts}`,{
       method:'DELETE',
       headers:{
         'Content-Type':'application/json',
@@ -28,7 +28,7 @@ const{comment,setComment}=useContext(commentContext);
   }
   //Create comment
   const createComment=(text,id)=>{
-    fetch("http://localhost:5000/comments",{
+    fetch("/comments",{
       method:'PUT',
       headers:{
         'Content-Type':'application/json',
