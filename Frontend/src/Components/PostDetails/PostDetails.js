@@ -2,15 +2,13 @@ import React, { useContext,useEffect,useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import SendIcon from "@mui/icons-material/Send";
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import "./PostDetails.css";
 import DefaultProfilePic from '../../assets/userdefault.png'
 import { commentContext } from "../../context/comments";
 function PostDetails({ items, detailDisp }) {
   const navigate=useNavigate();
-  const[showComment,setShowComment]=useState(false);
   const[item,setItem]=useState(items?.comments);
-  const[data,setData]=useState([])
 const{comment,setComment}=useContext(commentContext);
   const DeletePost=(posts)=>{
     if(window.confirm('Do you really want to delete this post?')){
@@ -45,36 +43,9 @@ const{comment,setComment}=useContext(commentContext);
     // updatePage(response.comment);
     console.log("My comm",response)
     setItem([...item,response.comments[response.comments.length-1]])
-    // clickComment();
-    navigate('/profile');
     })
     .catch(err=>console.log(err))
   }
-  // const updatePage=(result)=>{
-  //   const updatedData= data.map((posts)=>{
-  //     if(posts._id===result._id){
-  //       return result;
-  //     }
-  //     else{
-  //       return posts;
-  //     }
-  //   })
-  //   setItem(updatedData);
-  // }
-
-  const clickComment=(posts)=>{
-    if(!showComment){
-      setShowComment(true);
-      console.log('I am clicked')
-    setItem(posts);
-    }
-    else{
-      setShowComment(false);
-    }
-    
-  }
-  useEffect(()=>{
-  },[item])
   return (
     <div className="comment_details">
       <div className="comment_container">
@@ -88,12 +59,14 @@ const{comment,setComment}=useContext(commentContext);
               alt=""
             />
             <p>{items.postedBy?.userName}</p>
+            {window.location.href.split("/")[3]==='profile' &&
             <div className="delete_post" onClick={()=>{
               DeletePost(items._id);
               navigate('/');
             }}>
             <DeleteIcon/>
             </div>
+          }
           </div>
           <div className="comment_section">
             {item?.map((com) => {
@@ -128,12 +101,14 @@ const{comment,setComment}=useContext(commentContext);
             </button>
           
           </div>
+          {window.location.href.split("/")[3]==='profile' &&
           <div className="responsive_delete" onClick={()=>{
             DeletePost(items._id);
             navigate('/');
           }}>
           <DeleteIcon/>
           </div>
+        }
         </div>
       </div>
 

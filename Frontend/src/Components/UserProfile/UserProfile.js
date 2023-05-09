@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-// import PostDetails from '../PostDetails/PostDetails';
+import PostDetails from '../PostDetails/PostDetails';
 import Navbar from '../SideNav/Navbar'
 import './UserProfile.css'
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -22,8 +22,8 @@ function UserProfile() {
   const[followers,setfollowers]=useState(0);
   const[following,setfollowing]=useState(0);
   const[profilePic,setProfilePic]=useState("");
-  // const[getPost,setgetPost]=useState([]);
-  // const[show,setShow]=useState(false);
+  const[getPost,setgetPost]=useState([]);
+  const[show,setShow]=useState(false);
   const{userId}=useParams()
 
 console.log('user:',userId)
@@ -59,15 +59,15 @@ const unfollowUser=(userFollowId)=>{
   })
   .catch(err=>console.log(err))
 }
-//   const detailDisp=(getPost)=>{
-//     if(show){
-// setShow(false);
-//     }
-//     else{
-//       setShow(true);
-//       setgetPost(getPost);
-//     }
-//   }
+  const detailDisp=(getPost)=>{
+    if(show){
+setShow(false);
+    }
+    else{
+      setShow(true);
+      setgetPost(getPost);
+    }
+  }
   useEffect(()=>{
 fetch(`/users/${userId}`,{
   method:'GET',
@@ -132,14 +132,14 @@ if(data.data[0].followers.includes(JSON.parse(localStorage.getItem("users"))._id
    <div className="users_posts">
    {posts.map(post=>(
     <img src={post.photo} alt="" onClick={()=>{
-    //   detailDisp(post);
+      detailDisp(post);
     }}/>
    ))}
    </div>
-  {/* {
+   {
     show &&
     <PostDetails items={getPost} detailDisp={detailDisp}/>
-   } */}
+   } 
    <div className="responsive_navfooter">
    <Link to='/'><HomeIcon/></Link>
    <Link to='/myfollowing'><ExploreIcon/></Link>
