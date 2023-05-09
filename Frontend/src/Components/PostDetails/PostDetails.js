@@ -1,4 +1,4 @@
-import React, { useContext,useState } from "react";
+import React, { useContext,useEffect,useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import SendIcon from "@mui/icons-material/Send";
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -9,12 +9,12 @@ import { commentContext } from "../../context/comments";
 function PostDetails({ items, detailDisp }) {
   const navigate=useNavigate();
   const[showComment,setShowComment]=useState(false);
-  const[item,setItem]=useState([]);
+  const[item,setItem]=useState(items?.comments);
   const[data,setData]=useState([])
 const{comment,setComment}=useContext(commentContext);
   const DeletePost=(posts)=>{
     if(window.confirm('Do you really want to delete this post?')){
-    fetch(`/delposts/${posts}`,{
+    fetch(`http://localhost:5000/delposts/${posts}`,{
       method:'DELETE',
       headers:{
         'Content-Type':'application/json',
@@ -28,7 +28,7 @@ const{comment,setComment}=useContext(commentContext);
   }
   //Create comment
   const createComment=(text,id)=>{
-    fetch("/comments",{
+    fetch("http://localhost:5000/comments",{
       method:'PUT',
       headers:{
         'Content-Type':'application/json',
@@ -41,23 +41,26 @@ const{comment,setComment}=useContext(commentContext);
       })
     }).then(res=>res.json())
     .then(response=>{console.log(response);
-    updatePage(response);
-    clickComment();
+
+    // updatePage(response.comment);
+    console.log("My comm",response)
+    setItem([...item,response.comments[response.comments.length-1]])
+    // clickComment();
     navigate('/profile');
     })
     .catch(err=>console.log(err))
   }
-  const updatePage=(result)=>{
-    const updatedData= data.map((posts)=>{
-      if(posts._id===result._id){
-        return result;
-      }
-      else{
-        return posts;
-      }
-    })
-    setData(updatedData);
-  }
+  // const updatePage=(result)=>{
+  //   const updatedData= data.map((posts)=>{
+  //     if(posts._id===result._id){
+  //       return result;
+  //     }
+  //     else{
+  //       return posts;
+  //     }
+  //   })
+  //   setItem(updatedData);
+  // }
 
   const clickComment=(posts)=>{
     if(!showComment){
@@ -70,6 +73,8 @@ const{comment,setComment}=useContext(commentContext);
     }
     
   }
+  useEffect(()=>{
+  },[item])
   return (
     <div className="comment_details">
       <div className="comment_container">
@@ -91,7 +96,7 @@ const{comment,setComment}=useContext(commentContext);
             </div>
           </div>
           <div className="comment_section">
-            {items?.comments?.map((com) => {
+            {item?.map((com) => {
               return (
                 <p>
                   <b>{com?.postedBy?.userName}</b>&nbsp; &nbsp;{com.comment}
@@ -116,7 +121,7 @@ const{comment,setComment}=useContext(commentContext);
             <button
               onClick={() => {
                 createComment(comment, items._id);
-              
+              // detailDisp();
               }}
             >
               <SendIcon sx={{ backgroundColor: "#201b1b" }} />
