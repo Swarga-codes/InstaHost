@@ -2,11 +2,11 @@ const express=require('express');
 const app=express();
  const cors=require('cors');
  const mongoose=require('mongoose');
- const {mongoUrl}=require('./keys');
  const jwt=require('jsonwebtoken');
+ const dotenv=require('dotenv')
+ dotenv.config()
  const path=require('path');
- const {Secret_key}=require('./keys');
- mongoose.connect(mongoUrl);
+ mongoose.connect(process.env.MONGO_URL);
  require('./models/model')
  require('./models/posts')
  const routes=require('./routes/auth');

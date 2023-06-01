@@ -12,7 +12,7 @@ function PostDetails({ items, detailDisp }) {
 const{comment,setComment}=useContext(commentContext);
   const DeletePost=(posts)=>{
     if(window.confirm('Do you really want to delete this post?')){
-    fetch(`/delposts/${posts}`,{
+    fetch(`http://localhost:5000/delposts/${posts}`,{
       method:'DELETE',
       headers:{
         'Content-Type':'application/json',
@@ -26,7 +26,7 @@ const{comment,setComment}=useContext(commentContext);
   }
   //Create comment
   const createComment=(text,id)=>{
-    fetch("/comments",{
+    fetch("http://localhost:5000/comments",{
       method:'PUT',
       headers:{
         'Content-Type':'application/json',
@@ -88,12 +88,14 @@ const{comment,setComment}=useContext(commentContext);
               type="text"
               name="comment"
               id="name"
+              value={comment}
               placeholder="Enter a comment..."
               onChange={(e) => setComment(e.target.value)}
             />
             <button
               onClick={() => {
                 createComment(comment, items._id);
+                setComment('');
               // detailDisp();
               }}
             >
@@ -120,4 +122,3 @@ const{comment,setComment}=useContext(commentContext);
 }
 
 export default PostDetails;
-// onChange={(e) => setComment(e.target.value)}

@@ -28,7 +28,7 @@ function Navbar() {
 <Link to='/search'><SideRoutes Icon={SearchIcon} name="Search"/></Link>
   {/*<Link to='/myfollowing'><SideRoutes Icon={ExploreIcon} name="Explore"/></Link>*/}
      <Link to='/myfollowing'><SideRoutes Icon={SwitchAccountOutlinedIcon} name="My Following"/></Link>
-     <SideRoutes Icon={SendIcon} name="Messages"/>
+    {/* <SideRoutes Icon={SendIcon} name="Messages"/>*/}
      <Link to='/createposts'><SideRoutes Icon={AddBoxIcon} name="Create"/></Link>
      <Link to='/profile'><SideRoutes Icon={PersonIcon} name="Profile"/></Link>
      <div onClick={Logout}><SideRoutes Icon={LogoutIcon} name="Logout"/></div>

@@ -21,8 +21,9 @@ function Body() {
   const[showComment,setShowComment]=useState(false);
   const{comment,setComment}=useContext(commentContext);
   const[items,setItem]=useState([]);
+  const[updateComments,setUpdateComments]=useState(items)
   const createComment=(text,id)=>{
-    fetch("/comments",{
+    fetch("http://localhost:5000/comments",{
       method:'PUT',
       headers:{
         'Content-Type':'application/json',
@@ -35,8 +36,9 @@ function Body() {
       })
     }).then(res=>res.json())
     .then(response=>{
-      // console.log(response);
+      console.log(response.comments[response.comments.length-1]);
     updatePage(response);
+  setUpdateComments([...updateComments,response.comments[response.comments.length-1]])
     })
     .catch(err=>console.log(err))
   }
@@ -56,6 +58,8 @@ function Body() {
       setShowComment(true);
       // console.log('I am clicked')
     setItem(posts);
+   
+    console.log(updateComments)
     }
     else{
       setShowComment(false);
@@ -63,7 +67,7 @@ function Body() {
     
   }
 const likePosts = (id)=>{
-  fetch("/likes",{
+  fetch("http://localhost:5000/likes",{
     method:"PUT",
     headers:{
       "Content-Type":"application/json",
@@ -89,7 +93,7 @@ const likePosts = (id)=>{
   .catch(err=>console.log(err))
 }
 const UnlikePosts = (id)=>{
-  fetch("/unlikes",{
+  fetch("http://localhost:5000/unlikes",{
     method:"PUT",
     headers:{
       "Content-Type":"application/json",
@@ -114,7 +118,7 @@ const UnlikePosts = (id)=>{
   .catch(err=>console.log(err))
 }
  useEffect(()=>{
-  fetch('/posts',{
+  fetch('http://localhost:5000/posts',{
     headers:{
       'Content-Type':'application/json',
       'Authorization':'Bearer '+localStorage.getItem('jwt')
@@ -125,7 +129,7 @@ const UnlikePosts = (id)=>{
     setData(data);
   })
   .catch(err=>console.log(err))
-
+  console.log(updateComments)
  },[])
   return (
     <div className='Body'>
@@ -145,7 +149,7 @@ const UnlikePosts = (id)=>{
     </div>
     <div className="posts_display">
     {data.map(d=>(
-      <Posts dat={d} id={d._id} likePosts={likePosts} UnlikePosts={UnlikePosts} comms={clickComment} createComment={createComment}/>
+      <Posts dat={d} id={d._id} likePosts={likePosts} UnlikePosts={UnlikePosts} comms={clickComment} createComment={createComment} commupdate={setUpdateComments}/>
      
     ))
     
@@ -170,7 +174,7 @@ const UnlikePosts = (id)=>{
 <p><b>{items.postedBy?.userName}</b></p>
 </div>
 <div className="comment_section">
-{items?.comments?.map((com)=>{
+{updateComments?.map((com)=>{
   return(
   <p><b>{com?.postedBy?.userName}</b>&nbsp; &nbsp;{com.comment}</p>
 )})}
@@ -185,9 +189,9 @@ const UnlikePosts = (id)=>{
 
 <div className="add_comment">
 
-<input type="text" name='comment' id='name' placeholder='Enter a comment...' onChange={(e)=>setComment(e.target.value)}/>
+<input type="text" name='comment' id='name' value={comment} placeholder='Enter a comment...' onChange={(e)=>setComment(e.target.value)}/>
 <button onClick={()=>{createComment(comment,items._id);
-clickComment();
+setComment('');
 }}><SendIcon sx={{backgroundColor:'#201b1b'}}/></button>
 </div>
 </div>

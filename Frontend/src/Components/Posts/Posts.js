@@ -8,7 +8,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { commentContext } from "../../context/comments";
 import DefaultProfilePic from '../../assets/userdefault.png'
 import { Link } from "react-router-dom";
-function Posts({ dat, id, likePosts, UnlikePosts, comms, createComment }) {
+function Posts({ dat, id, likePosts, UnlikePosts, comms, createComment,commupdate }) {
   const { comment, setComment } = useContext(commentContext);
 
   return (
@@ -61,6 +61,7 @@ function Posts({ dat, id, likePosts, UnlikePosts, comms, createComment }) {
             <svg
             onClick={() => {
               comms(dat);
+              commupdate(dat?.comments)
             }}
             aria-label="Comment"
             class="x1lliihq x1n2onr6"
@@ -92,6 +93,7 @@ function Posts({ dat, id, likePosts, UnlikePosts, comms, createComment }) {
           <p
             onClick={() => {
               comms(dat);
+              commupdate(dat?.comments)
             }}
           >
             <b>{dat.comments?.length?`View all ${dat.comments?.length} comments`:""}</b>
@@ -102,10 +104,13 @@ function Posts({ dat, id, likePosts, UnlikePosts, comms, createComment }) {
             type="text"
             name="comment"
             id="name"
+            value={comment}
             placeholder="Enter a comment..."
             onChange={(e) => setComment(e.target.value)}
           />
-          <button onClick={() => createComment(comment, id)}>
+          <button onClick={() => {createComment(comment, id)
+setComment('');}
+}>
             <SendIcon sx={{ backgroundColor: "#000" }} />
           </button>
         </div>

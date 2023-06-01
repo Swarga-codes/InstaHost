@@ -1,12 +1,10 @@
 const express=require('express');
 const mongoose = require('mongoose');
 const router=express.Router();
-const data=require('../data');
 const USER=mongoose.model("USER");
 const bcrypt=require('bcrypt');
 const cors=require('cors');
 const jwt=require('jsonwebtoken');
-const { Secret_key } = require('../keys');
 const CheckLogin = require('../middlewares/CheckLogin');
 router.use(cors())
 // router.get('/',(req,res)=>{
@@ -54,7 +52,7 @@ router.post("/signin",(req,res)=>{
    bcrypt.compare(password,savedUser.password).then((match)=>{
     if(match){
     //    return res.status(200).json({message:'User authenticated successfully'});
-    const token=jwt.sign({_id:savedUser.id},Secret_key);
+    const token=jwt.sign({_id:savedUser.id},process.env.SECRET_KEY);
     const {_id,email,userName,name}=savedUser
     res.status(200).json({token,user:{_id,userName,email,name}});
     console.log({token,user:{_id,userName,email,name}});
