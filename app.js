@@ -7,6 +7,12 @@ const app=express();
  dotenv.config()
  const path=require('path');
  mongoose.connect(process.env.MONGO_URL);
+ mongoose.connection.on('connected',()=> {
+   console.log('Connected to the database')
+});
+mongoose.connection.on('error',()=>{
+   console.log('Couldnt connect to the database')
+});
  require('./models/model')
  require('./models/posts')
  const routes=require('./routes/auth');
@@ -16,12 +22,7 @@ app.use(require('./routes/createPosts'));
 app.use(require('./routes/user'))
 
  
- mongoose.connection.on('connected',()=> {
-    console.log('Connected to the database')
- });
- mongoose.connection.on('error',()=>{
-    console.log('Couldnt connect to the database')
- });
+
  app.use(cors());
  app.use(express.static(path.join(__dirname,'./Frontend/build')))
 app.get('*',(req,res)=>{
