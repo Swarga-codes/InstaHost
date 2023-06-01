@@ -23,7 +23,7 @@ function Body() {
   const[items,setItem]=useState([]);
   const[updateComments,setUpdateComments]=useState(items)
   const createComment=(text,id)=>{
-    fetch("http://localhost:5000/comments",{
+    fetch("/comments",{
       method:'PUT',
       headers:{
         'Content-Type':'application/json',
@@ -67,7 +67,7 @@ function Body() {
     
   }
 const likePosts = (id)=>{
-  fetch("http://localhost:5000/likes",{
+  fetch("/likes",{
     method:"PUT",
     headers:{
       "Content-Type":"application/json",
@@ -93,7 +93,7 @@ const likePosts = (id)=>{
   .catch(err=>console.log(err))
 }
 const UnlikePosts = (id)=>{
-  fetch("http://localhost:5000/unlikes",{
+  fetch("/unlikes",{
     method:"PUT",
     headers:{
       "Content-Type":"application/json",
@@ -118,7 +118,7 @@ const UnlikePosts = (id)=>{
   .catch(err=>console.log(err))
 }
  useEffect(()=>{
-  fetch('http://localhost:5000/posts',{
+  fetch('/posts',{
     headers:{
       'Content-Type':'application/json',
       'Authorization':'Bearer '+localStorage.getItem('jwt')
